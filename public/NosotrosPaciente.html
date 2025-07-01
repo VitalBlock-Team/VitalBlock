@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Más VitalBlock</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="assets/css/designNosotrosP.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Fira+Sans:wght@200;400&family=Sunflower:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header id="Inicio">
+    <div>
+      <a href="#Inicio"><img class="logo" src="assets/images/logo.png" alt="Logo VitalBlock"></a>
+    </div>
+    <nav>
+      <a class="element" href="HomePaciente.html">Inicio</a>
+      <a class="element" href="ServiciosPaciente.html">Servicios</a>
+      <a class="element" href="NosotrosPaciente.html">Más VitalBlock</a>
+      <a class="element" href="AutorizacionesPaciente.html">Autorizaciones</a>
+      <a class="element" href="ContactoPaciente.html">Contacto</a>
+    </nav>
+    <div>
+      <a href="EditarPaciente.html"><img class="login" src="assets/images/perfil.svg" alt="Perfil"></a>
+    </div>
+  </header>
+
+  <main>
+  <section class="contenido3">
+    <div class="texto-nosotros">
+      <h1 class="subtitulo">VitalBlock</h1>
+      <p class="texto2">
+       Busca ser una aplicación que brinde una gestión médica personalizada, segura y centrada en los criterios del usuario. Buscamos ante todo que el paciente pueda decidir quién accede a su historial clínico y sentirse cómodo y seguro al compartir su información. Además, queremos que tanto el acceso como la interacción con médicos autorizados sea clara, rápida y eficiente, permitiendo una atención oportuna y de calidad.
+      </p>
+      <button class="btn-politicas" onclick="abrirModalPoliticas()">Ver Términos y Condiciones</button>
+    </div>
+    <div class="imagen-nosotros">
+      <img class="med" src="assets/images/ServiciosP.jpg" alt="Imagen Médica">
+    </div>
+  </section>
+</main>
+
+
+  <!-- MODAL -->
+  <div id="modalPoliticas" class="modal-politicas">
+    <div class="modal-content-politicas">
+      <span class="close" onclick="cerrarModalPoliticas()">&times;</span>
+      <img src="assets/images/logo.png" alt="Logo" class="logo-modal">
+      <p class="text">
+        La política de privacidad de la aplicación de citas describe cómo se recopila, utiliza y protege la información personal y profesional de los usuarios. La información se recopila para brindar servicios de citas y mejorar su calidad, y se protege mediante medidas de seguridad técnicas y administrativas adecuadas. Los usuarios pueden acceder a su información personal y controlar su uso a través de la aplicación, y también pueden optar por no recibir comunicaciones promocionales. La información se comparte solo con terceros con el consentimiento explícito del usuario, y la aplicación cumple con las regulaciones de privacidad aplicables.
+      </p>
+      <footer class="modal-footer">
+        <small><b>Todos los derechos reservados VitalBlock&copy; 2025</b></small>
+      </footer>
+    </div>
+  </div>
+
+  <footer>
+    <section class="final">
+      <small><b>Todos los derechos reservados VitalBlock&copy; 2025</b></small>
+    </section>
+  </footer>
+
+  <script>
+    function abrirModalPoliticas() {
+      document.getElementById("modalPoliticas").style.display = "block";
+    }
+
+    function cerrarModalPoliticas() {
+      document.getElementById("modalPoliticas").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modalPoliticas");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>

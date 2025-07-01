@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Bree serif',serif;
+}
+body{
+    background-color: #DCEEF2;
+}
+h2{
+    font-size: 40px;
+}
+h3{
+    font-size: 38px;
+}
+h4{
+    font-size: 24px;
+}
+/*Navegacion*/
+nav{
+    font-size:32px ;
+    background:#CEECEC;
+    height: 80px;
+    width: 100%;
+}
+nav ul{
+    display: flex;
+    float: right;
+    align-items: center;
+    margin-right: 25px;
+}
+nav.navegacion img{
+    vertical-align: middle;
+    width: 75px;
+}
+nav ul li{
+    display: inline-block;
+    margin: 0 25px;
+}
+nav ul li a{
+    color:black;
+    font-size: 18px;
+    padding: 7px 13xp;
+    border-radius: 3px;
+    text-transform: capitalize;
+}
+li a:hover{
+    background:white;
+    transition: .5s;
+}
+
+.Main {
+    text-align: center;
+}
+.search {
+    background-color: #C4DAF3;
+    width: 45%;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+}
+.containerDates{
+    margin-top: 20px;
+    display: inline-block;
+    justify-content: center;
+}
+.list1,.list2{
+    background-color:#B5E6F2;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius:10px ;
+}
+.Pacient1,.Pacient2,.Pacient3,.Pacient4,.Pacient5,.Pacient6,.Pacient7,.Pacient8{
+    margin: 75px;
+    border-radius:10px ;
+     padding: 20px;
+    background-color: whitesmoke;
+}
+div p{
+    margin-bottom: 7px;
+}
+p.Name{
+    margin-bottom: 25px;
+}
+
+
+  

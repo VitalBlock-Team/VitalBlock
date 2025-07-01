@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calendario</title>
+        <link rel="icon" href="assets/images/VitalBlockLogo.jpeg">
+        <link rel="stylesheet" href="assets/css/calendario.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Fira+Sans:wght@200;400&family=Sunflower:wght@700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div>
+                <img class="logo" src="assets/images/VitalBlockLogo.jpeg" alt="">
+                <h1>Reserva de citas</h1>
+            </div>
+        </header>
+        <section>
+            <h2>Fechas</h2>
+            <div class="root">
+                <div class="calendar" id="calendar">
+                 </div>
+            </div>
+            <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+            <script  type="text/javascript" src="assets/scripts/calendario.js"></script>
+            <script type="text/javascript">
+                let calendar = new Calendar('calendar');
+                calendar.getElement().addEventListener('change', e => {
+                    console.log(calendar.value().format('LLL'));
+                });
+            </script>
+            <a href="FormasPago.html"><button class="pagar">Pagar</button></a>
+        </section>
+        <footer>
+            <section class="final">
+                <small>
+                    <b> Todos los derechos reservados VitalBlock&copy; 2025</b>
+                </small>
+            </section>
+        </footer>
+</html>

@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+}
+
+header{
+    background-color: #ceecec;
+    padding: 40px;
+}
+
+.logo{
+    width: 88px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+}
+
+header nav{
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'Sunflower', sans-serif;
+    color: #000;
+    cursor: pointer;
+}
+
+.element{
+    position: relative;
+    display: inline-flexbox;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    text-align: center;
+    padding-left: 90px;
+}
+
+header a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.login{
+    width: 65px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.contenido{
+    background: #DCEEF2;
+    padding: 460px;
+}
+
+.lg{
+    position: absolute;
+    width: 346px;
+    height: 317px;
+    left: 584px;
+    top: 148px;
+}
+
+.text{
+    position: absolute;
+    width: 1234px;
+    height: 405px;
+    left: 132px;
+    top: calc(50% - 345px/2 + 246.5px);
+    font-family: 'Sunflower';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 24px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    mix-blend-mode: normal;
+    background: #B5E6F2;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+footer{
+    padding-top: 5px;
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+}

@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Bree serif',serif;
+}
+body{
+    background-color: #DCEEF2;
+}
+h2{
+    font-size: 40px;
+}
+h3{
+    font-size: 38px;
+}
+h4{
+    font-size: 24px;
+}
+/*NAVEGACION*/
+
+.logoNav  img{
+    width: 100%;
+}
+
+header {
+    font-size:32px;
+    background:#CEECEC;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    top: 0;
+    z-index: 1000;
+    right: 0;
+    align-items: center;
+    justify-content: space-between;
+}
+header ul {
+    display: flex;
+}
+header ul a img {
+    width: 40px;
+}
+header ul li{
+    display: inline-block;
+    margin: 0 25px;
+}
+.navegacion a{
+    width: 50px;
+}
+header ul li a{
+    font-size: 1rem;
+    padding: 11px 20px;
+    color:black;
+    font-size: 18px;
+    padding: 7px 13xp;
+    border-radius: 3px;
+    text-transform: capitalize;
+}
+/*BANNER*/
+section.banner{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;     
+  padding: 2rem 9%;
+  min-height: 100vh;
+
+  background-image: url('../images/Doctordesinghome.jpg');
+  background-repeat: no-repeat;
+  background-position: right center;  
+  background-size: auto 100%;
+}
+.boxBcontainer{
+  max-width: 50%;      
+  margin-right: auto; 
+  text-align: left;
+  
+}
+.boxBcontainer h2{
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.boxBcontainer p{
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+  margin-top: 1rem;
+  width: 100%; 
+}
+/*.banner{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.boxBcontainer{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+
+}
+.txtBanner123{
+    margin-bottom: 50px;
+}*/
+
+
+/*NOSOTROS*/
+
+.AboutUs{
+    background-color: #DAE8F3;
+    text-align: center;
+}
+
+  .containerUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .container-imagetxtUs {
+    display: flex;
+    
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+  }
+  
+  .container-imagetxtUs img {
+    margin-right: 20px;
+    border-radius: 8px;
+    width: 500px;
+    height: auto;
+  }
+  .container-titleUs{
+    margin-bottom: 20px;
+  }
+  .textUs {
+    text-align: left;
+  }
+  
+/*CONTACTO*/
+.Contacto{
+    background-color: #DAE8F3;
+    text-align: center;
+    padding: 20px;
+}
+.Contacto-title{
+    margin-bottom: 20px;
+}
+.Botones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.Email,
+.Wsp {
+    flex-basis: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+}
+.wspimage,.emailimage{
+    width: 350px;
+    height: auto;
+}
+/*FOOTER*/
+footer{
+    background-color: #F2F2F2;
+    text-align: center;
+}
+.Derechos{
+    padding-top: 10px;
+}

@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+header {
+  background-color: #ceecec;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  width: 88px;
+  position: absolute;
+  left: 30px;
+  top: 20px;
+}
+
+header nav {
+  margin: auto;
+}
+
+.element {
+  margin: 0 20px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Sunflower', sans-serif;
+  color: #000;
+  text-decoration: none;
+}
+
+header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.login {
+  width: 65px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+.contenido3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 80px;
+  background-color: #DAE8F3;
+  gap: 60px;
+}
+
+.titulo3 {
+  font-family: 'Bree Serif', sans-serif;
+  font-size: 38px;
+  margin-bottom: 20px;
+  background-color: #f2f2f2;
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 20px;
+}
+.texto-nosotros {
+  flex: 1;
+  max-width: 50%;
+}
+
+.imagen-nosotros {
+  flex: 1;
+  text-align: center;
+
+}
+.med {
+  width: 100%;
+  max-width: 400px;
+}
+
+.subtitulo {
+  font-family: 'Bree Serif', sans-serif;
+  font-size: 42px;
+  color: #032B45;
+  margin-bottom: 20px;
+}
+
+.texto2 {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+  color: #010925;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.btn-politicas {
+  margin-top: 30px;
+  background-color: #007B8A;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-politicas:hover {
+  background-color: #005f6b;
+}
+
+/* Modal */
+.modal-politicas {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content-politicas {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 70%;
+  font-family: 'Fira Sans', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: justify;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logo-modal {
+  display: block;
+  margin: 0 auto 20px;
+  width: 60px;
+}
+
+.modal-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #f1f1f1;
+}
+.med {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 30px; /* esquinas redondeadas grandes */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+  border: 3px solid #007B8A;
+}
+
+.med {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 30px; /* bordes redondeados */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  object-fit: cover;
+}

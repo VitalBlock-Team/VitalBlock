@@ -1,0 +1,301 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* LOGO */
+img.logo {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 8px;
+}
+
+/* NAV */
+nav {
+  background: #CEECEC;
+  height: 60px;
+  width: 100%;
+}
+
+nav ul {
+  float: left;
+  position: relative;
+  top: 20px;
+  font-weight: 700;
+  margin-right: 110px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 23px;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 24px;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 18px;
+  color: #003344;
+  background-color: #d0f0fa;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+nav ul li a:hover {
+  background-color: #005766;
+  color: white;
+  transform: translateY(-3px);
+}
+
+
+/* LOGIN SECTION */
+.login-pym {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background: #f2f5f7;
+}
+
+.contenedor2 {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.titulo2 {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1c1c1c;
+  margin-bottom: 30px;
+}
+
+.login1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.log {
+  text-align: left;
+  position: relative;
+}
+
+.log p {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.log input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  padding: 8px;
+  font-size: 16px;
+  font-family: 'Fira Sans', sans-serif;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.log input:focus {
+  border-bottom-color: #1f2e3d;
+}
+
+/* BOTONES */
+.btnBanner {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #1f2e3d;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Fira Sans', sans-serif;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btnBanner:hover {
+  background: #0e1823;
+}
+
+#btn-register {
+  background: transparent;
+  color: #1f2e3d;
+  margin-top: 15px;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+#btn-register:hover {
+  color: #000;
+}
+
+/* TOGGLE PASSWORD */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 55%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+  color: #000;
+}
+
+/* ERROR MESSAGE */
+.error-message {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+/* FOOTER */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 16px 0;
+  background-color: #CEECEC;
+  text-align: center;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 18px;
+  color: #003344;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contenedor2 {
+    padding: 30px 20px;
+  }
+
+  .btnBanner {
+    padding: 10px 20px;
+  }
+}
+.recover-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.recover-modal.active {
+  display: flex;
+}
+
+.recover-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.recover-box h2 {
+  margin-bottom: 10px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.recover-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.recover-box button {
+  padding: 10px 20px;
+  background: #1f2e3d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-recover {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Enlace para recuperar contraseña */
+.recover-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #007b8f;
+  font-family: 'Fira Sans', sans-serif;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.recover-link:hover {
+  color: #005766;
+}
+
+/* Enlace para registrarse */
+#btn-register {
+  background: transparent;
+  color: #1f2e3d;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+#btn-register:hover {
+  color: #000;
+}
+
+/* Mejora para input dentro del modal */
+.recover-box input:focus {
+  border-color: #00acc1;
+  outline: none;
+}
+
+

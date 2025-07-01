@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Médico</title>
+  <link rel="icon" href="assets/images/logo.png" type="">
+  <link rel="stylesheet" href="assets/css/designLoginP.css" />
+  <link href="https://fonts.cdnfonts.com/css/sunflower-2" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/fira-sans-book" rel="stylesheet" />
+  <script defer src="./assets/scripts/login-register.Validation.js"></script>
+</head>
+<body>
+  <nav>
+    <img class="logo" src="assets/images/logo.png" alt="Logo">
+    <ul>
+      <li><a class="element" href="index.html">Regresar</a></li>
+    </ul>
+  </nav>
+
+  <section class="login-pym">
+    <div class="contenedor2">
+      <h1 class="titulo2">Login</h1>
+      <div class="login1">
+        <div class="log">
+          <p>Email</p>
+          <input type="text" id="email" placeholder="you@example.com" required />
+        </div>
+        <div class="log" style="position: relative;">
+          <p>Password</p>
+          <input type="password" id="password" placeholder="********" required />
+          <span class="toggle-password" onclick="togglePassword()">👁️</span>
+        </div>
+        <div class="log" style="text-align: right; margin-top: -10px;">
+          <a href="#" id="forgot-link" style="font-size: 14px; color: #1f2e3d; text-decoration: underline;">¿Olvidaste tu contraseña?</a>
+        </div>
+        <p id="error-message" class="error-message"></p>
+        <a href="HomeMedico.html" id="btn-login" class="btnBanner" onclick="return validarCredenciales()">Ingresar</a>
+        <p style="margin-top: 20px; font-size: 14px; font-family: 'Fira Sans', sans-serif;">
+          ¿No tienes una cuenta?
+          <a href="RegistroMedico.html" id="btn-register">Regístrate</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de Recuperación -->
+  <div id="recover-modal" class="recover-modal">
+    <div class="recover-box">
+      <span class="close-recover" onclick="cerrarModal()">✖</span>
+      <h2>Recuperar Contraseña</h2>
+      <p>Ingresa tu correo para enviarte un enlace de recuperación.</p>
+      <input type="email" id="recover-email" placeholder="you@example.com" required />
+      <button onclick="enviarRecuperacion()">Enviar</button>
+      <p id="recover-msg" class="error-message"></p>
+    </div>
+  </div>
+
+  <footer>
+    <section class="final">
+      <small><b>Todos los derechos reservados VitalBlock&copy; 2025</b></small>
+    </section>
+  </footer>
+
+  <script>
+    function togglePassword() {
+      const passInput = document.getElementById('password');
+      const toggleIcon = document.querySelector('.toggle-password');
+      if (passInput.type === 'password') {
+        passInput.type = 'text';
+        toggleIcon.textContent = '🙈';
+      } else {
+        passInput.type = 'password';
+        toggleIcon.textContent = '👁️';
+      }
+    }
+
+    function validarCredenciales() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const errorMessage = document.getElementById('error-message');
+      if (!email || !password) {
+        errorMessage.textContent = 'Por favor, completa todos los campos.';
+        return false;
+      }
+      errorMessage.textContent = '';
+      return true;
+    }
+
+    document.getElementById("forgot-link").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("recover-modal").classList.add("active");
+    });
+
+    function cerrarModal() {
+      document.getElementById("recover-modal").classList.remove("active");
+      document.getElementById("recover-msg").textContent = "";
+    }
+
+    function enviarRecuperacion() {
+      const email = document.getElementById("recover-email").value.trim();
+      const msg = document.getElementById("recover-msg");
+      if (!email) {
+        msg.textContent = "Por favor ingresa tu correo.";
+      } else {
+        msg.style.color = "green";
+        msg.textContent = "Si el correo está registrado, recibirás un mensaje.";
+        // Aquí puedes conectar con tu backend real si deseas
+      }
+    }
+  </script>
+</body>
+</html>

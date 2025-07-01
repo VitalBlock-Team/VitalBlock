@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Usuario</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="assets/css/designLoginP.css">
+  <link href="https://fonts.cdnfonts.com/css/sunflower-2" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/fira-sans-book" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <img class="logo" src="assets/images/logo.png" alt="Logo">
+    <ul>
+      <li><a class="element" href="index.html">Regresar</a></li>
+    </ul>
+  </nav>
+
+  <section class="login-pym">
+    <div class="contenedor2">
+      <h1 class="titulo2">Iniciar Sesión</h1>
+
+      <div class="login1">
+        <div class="log">
+          <p>Correo electrónico</p>
+          <input type="email" id="email" class="cuadrotexto" placeholder="ejemplo123@gmail.com" required>
+        </div>
+        <div class="log">
+          <p>Contraseña</p>
+          <input type="password" id="password" class="pas" placeholder="••••••" required>
+        </div>
+      </div>
+
+      <a href="#" class="recover-link" onclick="abrirModal()">¿Olvidaste tu contraseña?</a>
+
+      <!-- Botón corregido -->
+      <button id="btn-login" class="btnBanner" onclick="validarCredenciales()">Ingresar</button>
+
+      <a href="RegistroPaciente.html" id="btn-register">¿No tienes cuenta? Regístrate</a>
+    </div>
+  </section>
+
+  <!-- Modal para recuperación -->
+  <div id="recoverModal" class="recover-modal">
+    <div class="recover-box">
+      <span class="close-recover" onclick="cerrarModal()">×</span>
+      <h2>Recuperar contraseña</h2>
+      <p>Ingresa tu correo electrónico:</p>
+      <input type="email" placeholder="ejemplo@gmail.com">
+      <button>Enviar</button>
+    </div>
+  </div>
+
+  <footer>
+    <section class="final">
+      <small><b>Todos los derechos reservados VitolBlock&copy; 2025</b></small>
+    </section>
+  </footer>
+
+  <!-- Script de validación -->
+  <script>
+    function validarCredenciales() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!email || !password) {
+        alert("Por favor, complete ambos campos.");
+        return;
+      }
+
+      // Validación simulada
+      if (email === "usuario@demo.com" && password === "123456") {
+        window.location.href = "HomePaciente.html";
+      } else {
+        alert("Correo o contraseña incorrectos.");
+      }
+    }
+
+    function abrirModal() {
+      document.getElementById("recoverModal").classList.add("active");
+    }
+
+    function cerrarModal() {
+      document.getElementById("recoverModal").classList.remove("active");
+    }
+  </script>
+</body>
+
+</html>

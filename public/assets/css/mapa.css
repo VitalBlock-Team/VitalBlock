@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif;
+  background-color: #f6fafd;
+}
+
+header {
+  background-color: #ceecec;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 88px;
+  margin-right: 20px;
+}
+
+h1 {
+  font-family: 'Bree Serif', sans-serif;
+  font-size: 36px;
+  color: #003344;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.mapa-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+iframe {
+  width: 90%;
+  max-width: 900px;
+  height: 500px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-agregar {
+  width: 90%;
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-agregar h2 {
+  font-family: 'Bree Serif', sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #003344;
+  text-align: center;
+}
+
+.formulario-agregar form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario-agregar input {
+  padding: 10px 15px;
+  border: 1px solid #c4daf3;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #eef6fb;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.formulario-agregar button {
+  padding: 12px;
+  background-color: #00acc1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario-agregar button:hover {
+  background-color: #00838f;
+}
+
+footer {
+  background-color: #ceecec;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  font-family: 'Fira Sans', sans-serif;
+  color: #003344;
+}

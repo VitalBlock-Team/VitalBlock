@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historial Médico</title>
+  <link rel="stylesheet" href="assets/css/designHMP.css" />
+  <link rel="icon" href="assets/images/logo.png" />
+</head>
+<body>
+  <nav class="nav-bar">
+    <a href="HomePaciente.html" class="logoNav">
+      <img src="assets/images/logo.png" alt="Logo VitalBlock" />
+    </a>
+    <h2>Mi Historial Médico</h2>
+  </nav>
+
+  <!-- Botón flotante -->
+  <button class="floating-button" onclick="abrirFiltros()">🔍</button>
+  <a href=""></a>
+  <button class="floating-button device" onclick="abrirDispositivos()">📱</button>
+
+  <!-- Contenedor de historial -->
+  <section class="historial-container">
+    <div class="card">
+      <div class="card-header">
+        <img src="assets/images/docAna.jpg" alt="Doctor" />
+        <h3>Diagnóstico</h3>
+      </div>
+      <p><strong>Medicación mensual</strong></p>
+      <p>Fecha: 05 Mayo 2025</p>
+      <p>Médico: Dra. María García</p>
+      <p>Especialidad: Ginecología</p>
+      <button onclick="abrirModal('modalDiagnostico')">Ver detalles</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <img src="assets/images/docLuis.avif" alt="Doctor" />
+        <h3>Receta</h3>
+      </div>
+      <p><strong>Consulta General</strong></p>
+      <p>Fecha: 10 Mayo 2025</p>
+      <p>Médico: Dr. Juan Pérez</p>
+      <p>Especialidad: Medicina General</p>
+      <button onclick="abrirModal('modalReceta')">Ver detalles</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <img src="assets/images/Doc123.jpg" alt="Doctor" />
+        <h3>Examen</h3>
+      </div>
+      <p><strong>Análisis de Sangre</strong></p>
+      <p>Fecha: 01 Mayo 2025</p>
+      <p>Médico: Dr. Carlos López</p>
+      <p>Especialidad: Laboratorio Clínico</p>
+      <button onclick="abrirModal('modalExamen')">Ver detalles</button>
+    </div>
+
+    <div class="subir">
+      <label for="archivo" class="btn-subir">📤 Subir Examen</label>
+      <input type="file" id="archivo" accept=".pdf" hidden />
+    </div>
+  </section>
+
+  <!-- MODAL DIAGNÓSTICO -->
+  <div id="modalDiagnostico" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarModal('modalDiagnostico')">&times;</span>
+      <h2>Consulta General</h2>
+      <p><strong>Fecha:</strong> 2 Mayo 2025</p>
+      <p><strong>Especialidad:</strong> Ginecología</p>
+      <p><strong>Médico:</strong> Dra. María García</p>
+
+      <h3>Descripción del Diagnóstico</h3>
+      <p>Paciente presenta dolor abdominal y sangrado irregular. Se requiere evaluación para posible síndrome de ovario poliquístico.</p>
+
+      <h3>Prescripción</h3>
+      <ul>
+        <li>Ibuprofeno 400mg cada 8 horas</li>
+        <li>Antibiótico según resultados de cultivos</li>
+      </ul>
+
+      <h3>Archivos Adjuntos</h3>
+      <div class="archivo">📄 Ecografía_Ginecológica.pdf</div>
+
+      <h3>Notas Adicionales</h3>
+      <p>Se recomienda control mensual y evitar actividades físicas intensas.</p>
+
+      <div class="acciones">
+        <button>⬇️ Descargar PDF</button>
+        <button>🔗 Compartir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL RECETA -->
+  <div id="modalReceta" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarModal('modalReceta')">&times;</span>
+      <h2>Consulta General</h2>
+      <p><strong>Fecha:</strong> 5 Abril 2025</p>
+      <p><strong>Especialidad:</strong> Medicina General</p>
+      <p><strong>Médico:</strong> Dr. Juan Pérez</p>
+
+      <h3>Receta</h3>
+      <p>Paciente presenta antecedentes de hipertensión, se prescribe tratamiento para control de la presión arterial.</p>
+
+      <h3>Prescripción</h3>
+      <ul>
+        <li>Losartan 50mg diaria</li>
+        <li>Aspirina 100mg cada 24 horas</li>
+      </ul>
+
+      <h3>Notas Adicionales</h3>
+      <p>Se sugiere control mensual y seguimiento con análisis de sangre.</p>
+
+      <div class="acciones">
+        <button>⬇️ Descargar PDF</button>
+        <button>🔗 Compartir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL EXAMEN -->
+  <div id="modalExamen" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarModal('modalExamen')">&times;</span>
+      <h2>Consulta General</h2>
+      <p><strong>Fecha:</strong> 10 Mayo 2025</p>
+      <p><strong>Especialidad:</strong> Laboratorio Clínico</p>
+      <p><strong>Médico:</strong> Dr. Carlos López</p>
+
+      <h3>Examen</h3>
+      <p>Se realizaron pruebas de sangre para evaluar niveles de glucosa y colesterol.</p>
+
+      <h3>Archivos Adjuntos</h3>
+      <div class="archivo">📄 Resultados_Análisis_Sangre.pdf</div>
+
+      <h3>Notas Adicionales</h3>
+      <p>Se recomienda seguir dieta balanceada y realizar ejercicio moderado.</p>
+
+      <div class="acciones">
+        <button>⬇️ Descargar PDF</button>
+        <button>🔗 Compartir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel flotante de filtro -->
+  <div id="filtroHistorial" class="filter-panel" style="display: none;">
+    <h3>Filtrar Historial Médico</h3>
+    <label for="fechaInicio">Desde:</label>
+    <input type="date" id="fechaInicio">
+    <label for="fechaFin">Hasta:</label>
+    <input type="date" id="fechaFin">
+    <label for="tipo">Tipo:</label>
+    <select id="tipo">
+      <option value="">Todos</option>
+      <option value="diagnostico">Diagnóstico</option>
+      <option value="receta">Receta</option>
+      <option value="examen">Examen</option>
+    </select>
+    <label for="medico">Médico:</label>
+    <input type="text" id="medico" placeholder="Buscar médico">
+    <button onclick="cerrarFiltros()">Cerrar</button>
+  </div>
+<!-- Panel de dispositivos -->
+<div id="panelDispositivos" class="device-panel" style="display: none;">
+  <h3>Dispositivos Conectados</h3>
+
+  <div class="device-card">
+    <p><strong>iPhone 15</strong> <span class="status activo">Activo</span></p>
+    <p>Última conexión: 10 Mayo 2025, 14:30</p>
+    <button>Ver detalles</button>
+    <button class="desvincular">Desvincular</button>
+  </div>
+
+  <div class="device-card">
+    <p><strong>MacBook Pro</strong> <span class="status desconectado">Desconectado</span></p>
+    <p>Última conexión: 9 Mayo 2025, 18:45</p>
+    <button>Ver detalles</button>
+    <button class="desvincular">Desvincular</button>
+  </div>
+
+  <div class="device-card">
+    <p><strong>Samsung Galaxy Tab</strong> <span class="status activo">Activo</span></p>
+    <p>Última conexión: 8 Mayo 2025, 21:15</p>
+    <button>Ver detalles</button>
+    <button class="desvincular">Desvincular</button>
+  </div>
+
+  <div class="device-card">
+    <p><strong>Samsung S22</strong> <span class="status desconectado">Desconectado</span></p>
+    <p>Última conexión: 3 Mayo 2025, 14:30</p>
+    <button>Ver detalles</button>
+    <button class="desvincular">Desvincular</button>
+  </div>
+<button onclick="cerrarDispositivos()" class="cerrar-dispositivo">Cerrar</button>
+</div>
+  <!-- Overlay -->
+
+
+
+  <script>
+    function abrirModal(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function cerrarModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function abrirFiltros() {
+      document.getElementById('filtroHistorial').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    }
+
+    function cerrarFiltros() {
+      document.getElementById('filtroHistorial').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+  <script>function abrirDispositivos() {
+  document.getElementById('panelDispositivos').style.display = 'block';
+}
+
+function cerrarDispositivos() {
+  document.getElementById('panelDispositivos').style.display = 'none';
+}
+</script>
+</body>
+</html>

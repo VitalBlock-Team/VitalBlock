@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Familiares Cercanos</title>
+  <link rel="icon" href="assets/images/logo.png" />
+  <link rel="stylesheet" href="assets/css/mapa.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Fira+Sans:wght@200;400&family=Sunflower:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="HomePaciente.html"><img class="logo" src="assets/images/logo.png" alt="Logo" /></a>
+      <h1>Familiares Cercanos</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="mapa-contenedor">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249743.7328974646!2d-77.15259191812265!3d-12.026589992112639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c5f619ee3ec7%3A0x14206cb9cc452e4a!2sLima!5e0!3m2!1ses-419!2spe!4v1685675500937!5m2!1ses-419!2spe"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+
+      <div class="formulario-agregar">
+        <h2>Agregar Familiar</h2>
+        <form>
+          <input type="text" placeholder="Nombre completo" required />
+          <input type="text" placeholder="Parentesco" required />
+          <input type="tel" placeholder="Teléfono" required />
+          <input type="text" placeholder="Dirección" required />
+          <button type="submit">Agregar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <section class="final">
+      <small><b>Todos los derechos reservados VitalBlock &copy; 2025</b></small>
+    </section>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+/* ------------------ RESET ------------------ */
+body, h1, h2, h3, p, ul, li, a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+/* ------------------ HEADER ------------------ */
+header {
+  background-color: #ceecec;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.logo {
+  width: 80px;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+}
+.navbar {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+  justify-content: center;
+}
+nav a {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Sunflower', sans-serif;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #007b83;
+  text-decoration: underline;
+}
+.element {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Sunflower', sans-serif;
+  color: #000;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.element:hover {
+  color: #007b83;
+  text-decoration: underline;
+}
+
+.login {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.login {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+/* ------------------ HERO SECTION ------------------ */
+/* SECCIÓN HOME */
+
+.contenido1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  height: calc(100vh - 100px);
+  background-image: url('../images/homePaciente.svg');
+  background-repeat: no-repeat;
+  background-size: contain; 
+  background-position: right center;
+  padding: 60px;
+  box-sizing: border-box;
+}
+
+.contenido-texto {
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.titulo {
+  font-family: 'Bree Serif', serif;
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #1b2a32;
+}
+
+.texto {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: justify;
+  color: #003344;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px 0;
+  background-color: #f2f2f2;
+}
+
+/* ------------------ FOOTER ------------------ */
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contenido1 {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-position: center;
+  }
+
+  .contenido-texto {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .titulo {
+    font-size: 32px;
+  }
+
+  .texto {
+    font-size: 18px;
+  }
+}

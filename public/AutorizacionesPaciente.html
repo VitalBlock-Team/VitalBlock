@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autorizaciones de Acceso</title>
+  <link rel="stylesheet" href="assets/css/autorizaciones.css" />
+  <link rel="icon" href="assets/images/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Bree+Serif&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <header>
+    <a href="HomePaciente.html"><img src="assets/images/logo.png" class="logo" alt="Logo" /></a>
+    <h1>Autorizaciones de Acceso</h1>
+  </header>
+
+  <main class="autorizaciones">
+    <p class="subtitulo">Gestiona quién puede acceder a tu información médica</p>
+
+    <div class="card">
+      <ion-icon name="logo-medium"></ion-icon>
+      <div>
+        <h2>Acceso Médico</h2>
+        <p>Administra qué profesionales médicos pueden acceder a tu historial</p>
+        <a href="#" class="btn" id="verMedicos">Ver Médicos Autorizados</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <ion-icon name="people-outline"></ion-icon>
+      <div>
+        <h2>Acceso a Familiares</h2>
+        <p>Permite que tus familiares accedan a tu información médica</p>
+        <a href="mapa.html" class="btn">Ver Familiares Autorizados</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <ion-icon name="business-outline"></ion-icon>
+      <div>
+        <h2>Vinculaciones de Instituciones</h2>
+        <p>Conecta con centros médicos y hospitales de confianza</p>
+<button class="btn-card" onclick="abrirModalInstituciones()">Ver Instituciones Médicas</button>
+
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Mejorado -->
+  <div class="modal-overlay" id="modalMedicos">
+    <div class="modal-content">
+      <button class="close-modal" onclick="document.getElementById('modalMedicos').style.display='none'">&times;</button>
+      <h2>Médicos con Acceso Autorizado</h2>
+
+      <div class="solicitud-acceso">
+        <p>📢 <strong>Nueva solicitud de acceso</strong></p>
+        <p>Dr. Carlos Méndez solicita acceso</p>
+        <div class="acciones">
+          <button class="btn aceptar">Aceptar</button>
+          <button class="btn denegar">Denegar</button>
+        </div>
+      </div>
+
+      <div class="medico-card">
+        <img src="assets/images/docAna.jpg" alt="Dra. Ana García" />
+        <div>
+          <strong>Dra. Ana García</strong><br />
+          Cardiología<br />
+          Acceso desde: 10 Mayo 2025<br />
+          Último acceso: Hoy 14:30<br />
+          Acceso Permanente<br />
+          <button class="btn revocar">Revocar acceso</button>
+        </div>
+      </div>
+
+      <div class="medico-card">
+        <img src="assets/images/docLuis.avif" alt="Dr. Luis Ramírez" />
+        <div>
+          <strong>Dr. Luis Ramírez</strong><br />
+          Medicina General<br />
+          Acceso desde: 5 Mayo 2025<br />
+          Último acceso: 5 Mayo 2025<br />
+          Acceso Temporal - 1 día<br />
+          <button class="btn revocar">Revocar acceso</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal Mejorado 2 -->
+<div class="modal-overlay" id="modalInstituciones">
+  <div class="modal-content">
+    <button class="close-modal" onclick="document.getElementById('modalInstituciones').style.display='none'">&times;</button>
+    <h2>Instituciones Médicas Vinculadas</h2>
+
+    <div class="institucion-card">
+      <div class="institucion-info">
+        <strong>Clínica ABC</strong><br />
+        Hospital<br />
+        Vinculada desde: 10 Mayo 2025
+      </div>
+      <button class="btn-institucion">Revocar acceso</button>
+    </div>
+
+    <div class="institucion-card">
+      <div class="institucion-info">
+        <strong>Laboratorio XYZ</strong><br />
+        Laboratorio de Análisis Clínicos<br />
+        Vinculada desde: 5 Mayo 2025
+      </div>
+      <button class="btn-institucion">Revocar acceso</button>
+    </div>
+
+    <div class="nueva-institucion">
+      <p><strong>Vincular Nueva Institución Médica</strong></p>
+      <p>Si deseas vincular tu cuenta con una nueva institución, búscala y autoriza el acceso a tus resultados de exámenes médicos.</p>
+      <button class="btn-buscar">+ Buscar Institución</button>
+    </div>
+  </div>
+</div>
+
+
+
+  <footer>
+    <small><b>Todos los derechos reservados VitalBlock© 2025</b></small>
+  </footer>
+
+  <script>
+    const btn = document.getElementById("verMedicos");
+    const modal = document.getElementById("modalMedicos");
+    const span = document.querySelector(".close-modal");
+
+    btn.onclick = () => modal.style.display = "flex";
+    span.onclick = () => modal.style.display = "none";
+    window.onclick = e => {
+      if (e.target == modal) modal.style.display = "none";
+    }
+  </script>
+  <script>
+  function abrirModalInstituciones() {
+    document.getElementById('modalInstituciones').style.display = 'flex';
+  }
+
+  function cerrarModalInstituciones() {
+    document.getElementById('modalInstituciones').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
