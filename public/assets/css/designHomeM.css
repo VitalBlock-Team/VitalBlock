@@ -1,177 +1,214 @@
-*{
+/* ------------------ RESET ------------------ */
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-    font-family: 'Bree serif',serif;
+    font-family: 'Bree Serif', serif;
 }
-body{
+
+body {
     background-color: #DCEEF2;
 }
-h2{
-    font-size: 40px;
-}
-h3{
-    font-size: 38px;
-}
-h4{
-    font-size: 24px;
-}
-/*NAVEGACION*/
 
-.logoNav  img{
-    width: 100%;
-}
-
+/* ------------------ HEADER ------------------ */
 header {
-    font-size:32px;
-    background:#CEECEC;
+    font-size: 32px;
+     background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
     position: fixed;
     width: 100%;
     display: flex;
     top: 0;
     z-index: 1000;
-    right: 0;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
+
+.logoNav img {
+    width: 60px;
+}
+
 header ul {
     display: flex;
+    align-items: center;
+    gap: 20px;
 }
-header ul a img {
+
+header ul li a {
+    font-size: 18px;
+    padding: 8px 14px;
+    color: #000;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+header ul li a:hover {
+    background-color: #a5d9dd;
+    color: #003344;
+}
+
+.imgUserNav img {
     width: 40px;
 }
-header ul li{
-    display: inline-block;
-    margin: 0 25px;
-}
-.navegacion a{
-    width: 50px;
-}
-header ul li a{
-    font-size: 1rem;
-    padding: 11px 20px;
-    color:black;
-    font-size: 18px;
-    padding: 7px 13xp;
-    border-radius: 3px;
-    text-transform: capitalize;
-}
-/*BANNER*/
-section.banner{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;     
-  padding: 2rem 9%;
-  min-height: 100vh;
 
-  background-image: url('../images/Doctordesinghome.jpg');
-  background-repeat: no-repeat;
-  background-position: right center;  
-  background-size: auto 100%;
-}
-.boxBcontainer{
-  max-width: 50%;      
-  margin-right: auto; 
-  text-align: left;
-  
-}
-.boxBcontainer h2{
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-.boxBcontainer p{
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: justify;
-  margin-top: 1rem;
-  width: 100%; 
-}
-/*.banner{
+/* ------------------ BANNER ------------------ */
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 140px 80px 60px;
+    min-height: 100vh;
+    background-image: linear-gradient(to left, rgba(255,255,255,0.4), rgba(220,238,242,0.2)), url('../images/Doctordesinghome.png');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
     position: relative;
-    display: inline-block;
-    width: 100%;
 }
-.boxBcontainer{
-    position: absolute;
-    top: 50%;
-    left: 25%;
-    transform: translate(-50%,-50%);
-    text-align: center;
 
+.boxBcontainer {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.txtBanner123{
-    margin-bottom: 50px;
-}*/
 
 
-/*NOSOTROS*/
+.boxBcontainer h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: #1b2a32;
+}
 
-.AboutUs{
+.boxBcontainer p {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+    color: #003344;
+}
+
+/* ------------------ NOSOTROS ------------------ */
+.AboutUs {
     background-color: #DAE8F3;
     text-align: center;
+    padding: 40px 20px;
 }
 
-  .containerUs {
+.containerUs {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .container-imagetxtUs {
+    gap: 30px;
+}
+
+.container-imagetxtUs {
     display: flex;
-    
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    
-  }
-  
-  .container-imagetxtUs img {
-    margin-right: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.container-imagetxtUs img {
+    max-width: 480px;
     border-radius: 8px;
-    width: 500px;
-    height: auto;
-  }
-  .container-titleUs{
-    margin-bottom: 20px;
-  }
-  .textUs {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.textotitleUs {
+    max-width: 600px;
     text-align: left;
-  }
-  
-/*CONTACTO*/
-.Contacto{
+}
+
+.subtitleUs {
+    font-size: 28px;
+    color: #003344;
+    margin-bottom: 10px;
+}
+
+.txtUs {
+    font-size: 16px;
+    color: #003344;
+    line-height: 1.6;
+}
+
+/* ------------------ CONTACTO ------------------ */
+.Contacto {
     background-color: #DAE8F3;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
 }
-.Contacto-title{
+
+.Contacto-title h3 {
+    font-size: 30px;
     margin-bottom: 20px;
 }
-.Botones{
+
+.Botones {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.Email, .Wsp {
+    text-align: center;
+    max-width: 300px;
+}
+
+.emailimage, .wspimage {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.Contacto-image img {
+    width: 300px;
     margin-top: 20px;
 }
 
-.Email,
-.Wsp {
-    flex-basis: 100%;
-    max-width: 350px;
-    margin-bottom: 20px;
-}
-.wspimage,.emailimage{
-    width: 350px;
-    height: auto;
-}
-/*FOOTER*/
-footer{
+/* ------------------ FOOTER ------------------ */
+footer {
     background-color: #F2F2F2;
+    padding: 20px;
+    font-size: 14px;
+    color: #333;
     text-align: center;
 }
-.Derechos{
-    padding-top: 10px;
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        padding: 120px 20px 40px;
+        text-align: center;
+        background-position: center;
+    }
+
+    .boxBcontainer {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .container-imagetxtUs {
+        flex-direction: column;
+    }
+
+    .container-imagetxtUs img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .textotitleUs {
+        text-align: center;
+    }
 }
+

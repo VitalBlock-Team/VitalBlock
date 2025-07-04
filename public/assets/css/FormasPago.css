@@ -193,3 +193,101 @@ footer{
   text-align: center;
   font-family: 'Fira Sans', sans-serif;
 }
+
+.icono-ayuda {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #66CEF3;
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.icono-ayuda:hover {
+  transform: scale(1.1);
+}
+
+.tarjeta-asesor {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.tarjeta-asesor.visible {
+  display: block;
+}
+
+.contenido-asesor h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #023047;
+}
+
+.contenido-asesor p {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.contenido-asesor button {
+  background: #64bdf8;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Bree Serif', sans-serif;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contenido-asesor button:hover {
+  background: #3baeda;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.BTNConfirm {
+  padding: 15px 50px;
+  font-family: 'Sunflower', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  color: #000;
+  background: linear-gradient(to right, #66CEF3, #81d1f8);
+  border: none;
+  border-radius: 22px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.BTNConfirm:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(to right, #4cb8e6, #5fd3f9);
+  color: #222;
+}

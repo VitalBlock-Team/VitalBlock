@@ -44,5 +44,73 @@
       <small><b>Todos los derechos reservados VitalBlock&copy; 2025</b></small>
     </section>
   </footer>
+  <!-- Botón flotante de micrófono -->
+<button onclick="iniciarReconocimiento()" class="btn-mic" title="Habla con el asistente">
+  <ion-icon name="mic-circle-outline"></ion-icon>
+</button>
+
 </body>
+<div class="asistente-flotante" onclick="toggleAyuda()">
+  <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+</div>
+<div id="popup-ayuda" class="popup-ayuda oculto">
+  <h3>¿En qué te puedo ayudar?</h3>
+  <p>Puedes consultar sobre:</p>
+  <ul>
+    <li>🩺 Cómo reservar una cita</li>
+    <li>💳 Métodos de pago</li>
+    <li>📅 Disponibilidad médica</li>
+  </ul>
+  <button onclick="toggleAyuda()">Cerrar</button>
+</div>
+<script>function toggleAyuda() {
+  const popup = document.getElementById("popup-ayuda");
+  popup.classList.toggle("oculto");
+}
+</script>
+<!-- Ionicons -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+  function iniciarReconocimiento() {
+  const reconocimiento = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  reconocimiento.lang = 'es-ES';
+  reconocimiento.interimResults = false;
+
+  reconocimiento.onstart = () => {
+    console.log("🎙️ Escuchando...");
+  };
+
+  reconocimiento.onresult = (event) => {
+    const texto = event.results[0][0].transcript;
+    console.log("🗣️ Dijiste:", texto);
+    responderConVoz(texto);
+  };
+
+  reconocimiento.onerror = (event) => {
+    console.error("❌ Error al reconocer:", event.error);
+  };
+
+  reconocimiento.start();
+}
+
+function responderConVoz(textoUsuario) {
+  let respuesta = "Lo siento, no entendí.";
+
+  const t = textoUsuario.toLowerCase();
+  if (t.includes("cita")) {
+    respuesta = "Tu próxima cita es mañana a las 10 de la mañana.";
+  } else if (t.includes("emergencia")) {
+    respuesta = "Si es una emergencia, llama al 911 inmediatamente.";
+  } else if (t.includes("gracias")) {
+    respuesta = "Con gusto, estoy aquí para ayudarte.";
+  }
+
+  const voz = new SpeechSynthesisUtterance(respuesta);
+  voz.lang = 'es-ES';
+  window.speechSynthesis.speak(voz);
+}
+
+</script>
+
 </html>

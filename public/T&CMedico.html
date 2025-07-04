@@ -1,46 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos y condiciones</title>
-    <link rel="icon" href="assets/images/VitalBlockLogo.jpeg">
-    <link rel="stylesheet" href="assets/css/T&CM.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Glory:wght@100&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emergencia Médica</title>
+  <link rel="stylesheet" href="assets/css/T&CM.css">
+  <link rel="icon" href="assets/images/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Fira+Sans:wght@200;400&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.0.0/dist/tesseract.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    .btn-ocr {
+      background-color: #007b94;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-ocr:hover {
+      background-color: #005f72;
+      transform: scale(1.05);
+    }
+
+    #ocrResult {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: monospace;
+      white-space: pre-wrap;
+      color: #333;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <nav class="navegacion">
-        <a href="landing.html" target="_self">
-        <img src="assets/images/VitalBlockLogo.jpeg" alt="imgNav" id="imgLogoNav">
-        </a>
-        <ul>
-            <li><a class="active" href="HomeMedico.html">Inicio</a></li>
-            <li><a href="CitasPendientes.html">Citas Pendientes</a></li>
-            <li><a href="HomeMedico.html">Sobre nosotros</a></li>
-            <li><a href="T&C.html">T&C</a></li>
-            <li><a href="HomeMedico.html">Contacto</a></li>
-            <a href="EditarMedico.html" target="_self">
-            <img id="imgUserNav" src="assets/images/perfil.svg">
-            </a>
-        </ul>
-    </nav>
-    <div class="IMAGE">
-        <img src="assets/images/logo.svg" alt="imgNav" id="imgLogoNav">
+
+  <nav class="navegacion">
+    <a href="landing.html">
+      <img src="assets/images/logo.png" alt="Logo" id="imgLogoNav">
+    </a>
+    <ul>
+      <li><a class="active" href="HomeMedico.html">Inicio</a></li>
+      <li><a href="CitasPendientes.html">Citas Pendientes</a></li>
+      <li><a href="TerminosCH.html">Sobre nosotros</a></li>
+      <li><a href="T&CMedico.html">Emergencia</a></li>
+      <li><a href="soporte.html">Contacto</a></li>
+      <a href="EditarMedico.html">
+        <img id="imgUserNav" src="assets/images/perfil.svg" alt="Perfil">
+      </a>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h2>Emergencia Médica</h2>
+    <p>Sube una imagen del documento de identidad junto al paciente.</p>
+
+    <div class="upload-box" id="uploadBox">
+      <label for="fileInput">
+        <ion-icon name="archive-outline" class="upload-icon"></ion-icon>
+        <span>Toque para subir documento</span>
+      </label>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+      <p id="fileName" class="file-name"></p>
     </div>
-    <div class="containerMain">
-        <div class="textTyC">
-        <p class="text">La politica de privavidad de la aplicacion de citas profesionales describe como se recopila y utiliza y protege la informacion
-             personal y profesional de los usuarios. La informacion proporcionada sirve para brindar servicios de citas 
-              y mejorar su calidad, y se protege mediante medidas de seguridad tecnicas y administrativas adecuadas.
-              Los usuarios pueden acceder a su informacion personal y controlar su uso a traves de la aplicacion, y
-              tambien pueden optar por no recibir comunicaciones promocionales. La informacion se comparte solo con terceros con el
-              consentimiento explicito del usuario, y la aplicacion cumple con las regulaciones de privacidad aplicables. La politica de
-              privacidad puede actualizarse y los usuarios deben revisarla periodicamente para mantenerse informados. Se proporcionan
-              detalles de contacto para preguntas o inquietudes sobre la politica de privacidad.</p>
+
+    <button onclick="realizarOCR()" class="btn-ocr" id="btnOCR" style="display: none; margin-top: 20px;">
+      📄 Escanear Texto del Documento
+    </button>
+
+    <pre id="ocrResult" style="display: none;"></pre>
+
+    <button onclick="descargarComoPDF()" class="btn-ocr" id="btnDownload" style="display: none; margin-top: 15px;">
+      <ion-icon name="archive-outline" style="vertical-align: middle;"></ion-icon>
+      Descargar como PDF
+    </button>
+
+    <p class="note">Asegúrate que tanto el documento como el rostro del paciente sean claramente visibles.</p>
+  </main>
+
+  <section class="device-list" id="deviceList"></section>
+
+  <div class="fab-container">
+    <ion-icon name="add-circle-outline" class="fab-icon" onclick="toggleFabMenu()"></ion-icon>
+    <div class="fab-menu" id="fabMenu">
+      <button onclick="agregarDispositivo()">+ Agregar nuevo dispositivo</button>
+    </div>
+  </div>
+
+  <script>
+    let imagenSeleccionada = null;
+    let textoExtraido = '';
+
+    const fileInput = document.getElementById('fileInput');
+    const fileName = document.getElementById('fileName');
+    const uploadBox = document.getElementById('uploadBox');
+    const btnOCR = document.getElementById('btnOCR');
+    const btnDownload = document.getElementById('btnDownload');
+    const resultBox = document.getElementById('ocrResult');
+
+    fileInput.addEventListener('change', function () {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      if (!file.type.startsWith("image/")) {
+        alert("Por favor, sube una imagen (JPG, PNG).");
+        fileInput.value = "";
+        fileName.textContent = "";
+        btnOCR.style.display = "none";
+        btnDownload.style.display = "none";
+        resultBox.style.display = "none";
+        return;
+      }
+
+      imagenSeleccionada = file;
+      fileName.textContent = `Imagen seleccionada: ${file.name}`;
+      btnOCR.style.display = "inline-block";
+    });
+
+    function realizarOCR() {
+      if (!imagenSeleccionada) {
+        alert("Primero sube una imagen.");
+        return;
+      }
+
+      resultBox.style.display = "block";
+      resultBox.textContent = "⏳ Procesando imagen...";
+
+      Tesseract.recognize(
+        imagenSeleccionada,
+        'spa',
+        { logger: m => console.log(m) }
+      ).then(({ data: { text } }) => {
+        textoExtraido = text.trim();
+        resultBox.textContent = `✅ Texto detectado:\n\n${textoExtraido}`;
+        btnDownload.style.display = 'inline-block';
+      }).catch(err => {
+        resultBox.textContent = "❌ Error al procesar la imagen.";
+        console.error(err);
+      });
+    }
+
+    async function descargarComoPDF() {
+      if (!textoExtraido) {
+        alert("No hay texto extraído para descargar.");
+        return;
+      }
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(12);
+
+      doc.setFontSize(16);
+      doc.text("Informe de Texto Escaneado - VitalBlock", 15, 20);
+      doc.setFontSize(12);
+      const lineas = doc.splitTextToSize(textoExtraido, 180);
+      doc.text(lineas, 15, 35);
+      doc.save("informe_ocr_vitalblock.pdf");
+    }
+
+    function toggleFabMenu() {
+      const menu = document.getElementById('fabMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function agregarDispositivo() {
+      const container = document.getElementById('deviceList');
+      const icons = ['phone-portrait-outline', 'tablet-portrait-outline', 'laptop-outline'];
+      const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+
+      const card = document.createElement('div');
+      card.classList.add('device-card');
+      card.innerHTML = `
+        <div class="device-info">
+          <ion-icon name="${randomIcon}"></ion-icon>
+          <div>
+            <h3>Dispositivo agregado</h3>
+            <p>Última conexión: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
+          </div>
         </div>
-    </div>
-    </body>
+        <div class="device-actions">
+          <span class="status activo">Activo</span>
+          <button class="btn-detail">Ver detalles</button>
+          <button class="btn-unlink">Desvincular</button>
+          <button class="btn-delete" onclick="this.closest('.device-card').remove()">🗑 Eliminar</button>
+        </div>
+      `;
+      container.appendChild(card);
+    }
+  </script>
+
+</body>
 </html>

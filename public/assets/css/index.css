@@ -350,3 +350,73 @@ footer {
     margin-bottom: 30px;
   }
 }
+
+.asistente-boton {
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  background-color: #007b94;
+  color: white;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 40px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.asistente-boton:hover {
+  transform: scale(1.1);
+}
+
+.asistente-contenedor {
+  position: fixed;
+  bottom: 160px;
+  right: 25px;
+  width: 280px;
+  background: #ffffff;
+  border: 1px solid #99cfe0;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  padding: 15px;
+  display: none;
+  z-index: 999;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.asistente-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #003344;
+}
+
+.asistente-mensajes button {
+  display: block;
+  width: 100%;
+  background-color: #e6f6fb;
+  color: #003344;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.asistente-mensajes button:hover {
+  background-color: #d0ecf2;
+}
+
+.respuesta-bot {
+  margin-top: 12px;
+  font-size: 14px;
+  background-color: #f3f3f3;
+  padding: 8px;
+  border-radius: 6px;
+  color: #333;
+}
+

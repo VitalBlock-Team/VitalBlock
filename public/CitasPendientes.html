@@ -1,95 +1,209 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Citas Pendientes</title>
-        <link rel="icon" href="assets/images/VitalBlockLogo.jpeg">
-        <link rel="stylesheet" href="assets/css/designCitasPendientes.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Glory:wght@100&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="navegacion">
-            <a href="landing.html" target="_self">
-            <img src="assets/images/VitalBlockLogo.jpeg" alt="imgNav" id="imgLogoNav">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas Pendientes</title>
+    <link rel="stylesheet" href="assets/css/designCitasPendientes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+      }
+      .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 12px;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .estado.completado {
+        background-color: #b6e4c3;
+        padding: 4px 10px;
+        border-radius: 8px;
+      }
+      .estado.pendiente {
+        background-color: #f4c2c2;
+        padding: 4px 10px;
+        border-radius: 8px;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navegacion">
+        <a href="landing.html" target="_self">
+            <img src="assets/images/logo.png" alt="Logo" id="imgLogoNav">
+        </a>
+        <ul>
+            <li><a class="active" href="HomeMedico.html">Inicio</a></li>
+            <li><a href="CitasPendientes.html">Citas Pendientes</a></li>
+            <li><a href="TerminosCH.html">Sobre nosotros</a></li>
+            <li><a href="T&CMedico.html">Emergencia</a></li>
+            <li><a href="soporte.html">Contacto</a></li>
+            <a href="EditarMedico.html" target="_self">
+                <img id="imgUserNav" src="assets/images/perfil.svg" alt="Perfil">
             </a>
-            <ul>
-                <li><a class="active" href="HomeMedico.html">Inicio</a></li>
-                <li><a href="CitasPendientes.html">Citas Pendientes</a></li>
-                <li><a href="HomeMedico.html">Sobre nosotros</a></li>
-                <li><a href="T&C.html">T&C</a></li>
-                <li><a href="HomeMedico.html">Contacto</a></li>
-                <a href="EditarMedico.html" target="_self">
-                <img id="imgUserNav" src="assets/images/perfil.svg">
-                </a>
-            </ul>
-        </nav>
-        <section class="Main">
-            <div class="containerTitle">
-                <h2 class="tituloCitas">Citas pendientes</h2>
+        </ul>
+    </nav>
+
+    <section class="Main">
+        <div class="containerTitle">
+            <h2>Citas Pendientes</h2>
+        </div>
+        <div class="containerSearch">
+            <form>
+                <input type="search" class="search" placeholder="Buscar paciente por nombre o DNI">
+            </form>
+        </div>
+
+        <div class="containerDates">
+            <div class="pacient-card">
+                <p class="Name">Juan Pérez</p>
+                <p class="Sex">Sexo: Masculino</p>
+                <p class="Age">Edad: 35</p>
+                <p class="DNI">DNI: 75551879</p>
+                <button class="btn-more" onclick="openModal('modalJuan')">Ver más</button>
             </div>
-            <div class="containerSearch">
-                <form>
-                    <input type="search" class="search" placeholder="Buscar">
-                </form>
+
+            <div class="pacient-card">
+                <p class="Name">Daniela Pérez</p>
+                <p class="Sex">Sexo: Femenino</p>
+                <p class="Age">Edad: 34</p>
+                <p class="DNI">DNI: 75551878</p>
+                <button class="btn-more" onclick="openModal('modalDaniela')">Ver más</button>
             </div>
-            <div class="containerDates">
-                <div class="list1">
-                    <div class="Pacient1">
-                        <p class="Name">Juan Perez</p>
-                        <p class="Sex">Sexo: Masculino</p>
-                        <p class="Age">Edad: 35</p>
-                        <p class="DNI">DNI: 75551879</p>
-                    </div>
-                    <div class="Pacient2">
-                        <p class="Name">Daniela Perez</p>
-                        <p class="Sex">Sexo: Femenino</p>
-                        <p class="Age">Edad: 34</p>
-                        <p class="DNI">DNI: 75551878</p>
-                    </div>
-                    <div class="Pacient3">
-                        <p class="Name">Diego Perez</p>
-                        <p class="Sex">Sexo: Masculino</p>
-                        <p class="Age">Edad: 33</p>
-                        <p class="DNI">DNI: 75551877</p>
-                    </div>
-                    <div class="Pacient4">
-                        <p class="Name">Andrea Perez</p>
-                        <p class="Sex">Sexo: Femenino</p>
-                        <p class="Age">Edad: 32</p>
-                        <p class="DNI">DNI: 75551876</p>
-                    </div>
-                </div>
-                <div class="list2">
-                    <div class="Pacient5">
-                        <p class="Name">Juan Muñoz</p>
-                        <p class="Sex">Sexo: Masculino</p>
-                        <p class="Age">Edad: 35</p>
-                        <p class="DNI">DNI: 75551879</p>
-                    </div>
-                    <div class="Pacient6">
-                        <p class="Name">Daniela Alvarado</p>
-                        <p class="Sex">Sexo: Femenino</p>
-                        <p class="Age">Edad: 34</p>
-                        <p class="DNI">DNI: 75551878</p>
-                    </div>
-                    <div class="Pacient7">
-                        <p class="Name">Diego Torres</p>
-                        <p class="Sex">Sexo: Masculino</p>
-                        <p class="Age">Edad: 33</p>
-                        <p class="DNI">DNI: 75551877</p>
-                    </div>
-                    <div class="Pacient8">
-                        <p class="Name">Andrea Puentes</p>
-                        <p class="Sex">Sexo: Femenino</p>
-                        <p class="Age">Edad: 32</p>
-                        <p class="DNI">DNI: 75551876</p>
-                    </div>
-                </div>
+
+            <div class="pacient-card">
+                <p class="Name">Diego Pérez</p>
+                <p class="Sex">Sexo: Masculino</p>
+                <p class="Age">Edad: 33</p>
+                <p class="DNI">DNI: 75551877</p>
+                <button class="btn-more" onclick="openModal('modalDiego')">Ver más</button>
             </div>
-        </section>
-    </body>
+
+            <div class="pacient-card">
+                <p class="Name">Andrea Pérez</p>
+                <p class="Sex">Sexo: Femenino</p>
+                <p class="Age">Edad: 32</p>
+                <p class="DNI">DNI: 75551876</p>
+                <button class="btn-more" onclick="openModal('modalAndrea')">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALES COMPLETOS -->
+    <div id="modalJuan" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modalJuan')">&times;</span>
+        <h3>Juan Pérez</h3>
+        <p>DNI: 75551879 | Edad: 35 años | Sexo: Masculino</p>
+        <hr>
+        <h4>Diagnósticos Recientes</h4>
+        <ul>
+          <li>Hipertensión Arterial - Dr. Martínez (15 Mar 2025)</li>
+          <li>Diabetes Tipo 2 - Dra. Rodríguez (03 Feb 2025)</li>
+        </ul>
+        <h4>Tratamientos Activos</h4>
+        <p>Losartán 50mg - 1 tableta cada 12h (Inicio: 15 Mar 2025)</p>
+        <h4>Pruebas y Resultados</h4>
+        <ul>
+          <li>Análisis de Sangre - <span class="estado completado">Completado</span></li>
+          <br>
+          <li>Radiografía de Tórax - <span class="estado pendiente">Pendiente</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="modalDaniela" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modalDaniela')">&times;</span>
+        <h3>Daniela Pérez</h3>
+        <p>DNI: 75551878 | Edad: 34 años | Sexo: Femenino</p>
+        <hr>
+        <h4>Diagnósticos Recientes</h4>
+        <ul>
+          <li>Asma - Dra. Luján (10 Mar 2025)</li>
+          <li>Sinusitis Crónica - Dr. Bravo (02 Feb 2025)</li>
+        </ul>
+        <h4>Tratamientos Activos</h4>
+        <p>Montelukast 10mg - 1 tableta diaria (Inicio: 11 Mar 2025)</p>
+        <h4>Pruebas y Resultados</h4>
+        <ul>
+          <li>Espirometría - <span class="estado completado">Completado</span></li>
+          <br>
+          <li>Rayos X de tórax - <span class="estado pendiente">Pendiente</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="modalDiego" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modalDiego')">&times;</span>
+        <h3>Diego Pérez</h3>
+        <p>DNI: 75551877 | Edad: 33 años | Sexo: Masculino</p>
+        <hr>
+        <h4>Diagnósticos Recientes</h4>
+        <ul>
+          <li>Colesterol Alto - Dra. Ramos (01 Mar 2025)</li>
+          <li>Gastritis Crónica - Dr. Vargas (21 Feb 2025)</li>
+        </ul>
+        <h4>Tratamientos Activos</h4>
+        <p>Omeprazol 20mg - 1 cápsula diaria (Inicio: 01 Mar 2025)</p>
+        <h4>Pruebas y Resultados</h4>
+        <ul>
+          <li>Perfil Lipídico - <span class="estado completado">Completado</span></li>
+          <br>
+          <li>Endoscopía - <span class="estado pendiente">Pendiente</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="modalAndrea" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modalAndrea')">&times;</span>
+        <h3>Andrea Pérez</h3>
+        <p>DNI: 75551876 | Edad: 32 años | Sexo: Femenino</p>
+        <hr>
+        <h4>Diagnósticos Recientes</h4>
+        <ul>
+          <li>Endometriosis - Dra. Salazar (05 Mar 2025)</li>
+          <li>Migraña Crónica - Dr. Medina (19 Feb 2025)</li>
+        </ul>
+        <h4>Tratamientos Activos</h4>
+        <p>Ibuprofeno 400mg - 1 tableta cada 8h (Inicio: 06 Mar 2025)</p>
+        <h4>Pruebas y Resultados</h4>
+        <ul>
+          <li>Ecografía - <span class="estado completado">Completado</span></li>
+          <li>Resonancia magnética - <span class="estado pendiente">Pendiente</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      function openModal(id) {
+        document.getElementById(id).style.display = 'block';
+      }
+      function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+      }
+    </script>
+</body>
 </html>

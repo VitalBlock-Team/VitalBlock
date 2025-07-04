@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VitalBlock - Plataforma Médica</title>
-  <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="public/assets/css/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Fira+Sans:wght@300;500&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/images/logo.png">
+  <link rel="icon" href="public/assets/images/logo.png">
 </head>
 <body>
   <header>
-    <img class="logo" src="assets/images/logo.png" alt="Logo">
+    <img class="logo" src="public/assets/images/logo.png" alt="Logo">
     <nav>
       <a href="#Inicio">Inicio</a>
       <a href="#Servicios">Servicios</a>
@@ -20,7 +20,7 @@
       <a href="#App">App</a>
       <a href="#Contacto">Contacto</a>
     </nav>
-    <a href="LoginPaciente.html"><img class="login" src="assets/images/perfil.svg" alt="Login"></a>
+    <a href="public/LoginPaciente.html"><img class="login" src="public/assets/images/perfil.svg" alt="Login"></a>
   </header>
 
   <section class="hero" id="Inicio">
@@ -28,12 +28,12 @@
       <h1>VitalBlock</h1>
       <p>Descubre una nueva forma, más segura y eficiente, de gestionar tu historial médico desde un solo lugar, con total control y acceso en todo momento.</p>
       <div class="hero-buttons">
-        <a href="LoginPaciente.html" class="btn btn-primary">Entrar como Paciente</a>
-        <a href="LoginMedico.html" class="btn btn-outline">Entrar como Médico</a>
+        <a href="public/LoginPaciente.html" class="btn btn-primary">Entrar como Paciente</a>
+        <a href="public/LoginMedico.html" class="btn btn-outline">Entrar como Médico</a>
       </div>
     </div>
     <div class="hero-image">
-      <img src="assets/images/doc11.png" alt="Ilustración médica" />
+      <img src="public/assets/images/doc11.png" alt="Ilustración médica" />
     </div>
   </section>
 
@@ -41,15 +41,15 @@
     <h2 class="section-title">Servicios</h2>
     <div class="cards-container">
       <div class="card">
-        <img src="assets/images/calendario.svg" alt="Citas">
+        <img src="public/assets/images/calendario.svg" alt="Citas">
         <p>Reservar citas según disponibilidad de doctores</p>
       </div>
       <div class="card">
-        <img src="assets/images/historial-medico.svg" alt="Historial">
+        <img src="public/assets/images/historial-medico.svg" alt="Historial">
         <p>Cuestionarios virtuales para atención personalizada</p>
       </div>
       <div class="card">
-        <img src="assets/images/mapa.svg" alt="Mapa">
+        <img src="public/assets/images/mapa.svg" alt="Mapa">
         <p>Consulta de usuarios por ubicación geográfica</p>
       </div>
     </div>
@@ -58,7 +58,7 @@
   <section id="Nosotros" class="section">
     <h2 class="section-title">Nosotros</h2>
     <div class="nosotros-content">
-      <img src="assets/images/historialNosotros.jpg" alt="Nosotros">
+      <img src="public/assets/images/historialNosotros.jpg" alt="Nosotros">
       <div class="nosotros-text">
         <p>VitalBlock es una plataforma innovadora diseñada por el Startup SaluChain para transformar la gestión de la información médica. Utilizando tecnología blockchain, VitalBlock proporciona un control total y seguro de los historiales clínicos de los pacientes, empoderándolos para gestionar y autorizar el acceso a su información médica en tiempo real.</p>
       </div>
@@ -68,7 +68,7 @@
   <section id="App" class="section">
     <h2 class="section-title">Nuestra App</h2>
     <div class="app-content">
-      <img src="assets/images/prototipo.svg" alt="App Demo">
+      <img src="public/assets/images/prototipo.png" alt="App Demo">
       <div>
         <p>Accede a tu atención desde cualquier lugar con nuestra aplicación móvil. Diseñada para facilitar la comunicación y el seguimiento personalizado de tu historial médico, poniendo toda tu información de salud al alcance de tu mano.</p>
         <a href="https://www.figma.com/proto/Jqy44QTmb5hPPy4GgCs3Mj/Vitalblock?node-id=187-16530" class="btn-app" target="_blank">Ver Aplicación</a>
@@ -87,11 +87,11 @@
     <h2 class="section-title">Contacto</h2>
     <div class="contacto-content">
       <div>
-        <img src="assets/images/email.svg" alt="Email">
+        <img src="public/assets/images/email.svg" alt="Email">
         <p>contacto@VitalBlock.com</p>
       </div>
       <div>
-        <img src="assets/images/whatsapp.svg" alt="WhatsApp">
+        <img src="public/assets/images/whatsapp.svg" alt="WhatsApp">
         <p>933931880</p>
       </div>
     </div>
@@ -100,5 +100,66 @@
   <footer>
     <p>Todos los derechos reservados VitalBlock 2025</p>
   </footer>
+  <!-- Botón flotante para abrir el asistente -->
+<div class="asistente-boton" id="abrirAsistente">
+  <ion-icon name="chevron-back-circle-outline"></ion-icon>
+</div>
+
+
+
+<!-- Contenedor del asistente -->
+<div class="asistente-contenedor" id="asistenteContenedor">
+  <div class="asistente-header">
+    <h3>🤖 Asistente Virtual</h3>
+    <span id="cerrarAsistente" style="cursor:pointer;">✖</span>
+  </div>
+  <div class="asistente-mensajes">
+    <p><strong>¿En qué puedo ayudarte?</strong></p>
+    <button onclick="responder('registro')">¿Cómo me registro?</button>
+    <button onclick="responder('citas')">¿Dónde veo mis citas?</button>
+    <button onclick="responder('emergencia')">¿Qué hacer en una emergencia?</button>
+    <div id="respuestaBot" class="respuesta-bot"></div>
+  </div>
+</div>
+
+
+
+<script>
+  const abrirAsistente = document.getElementById('abrirAsistente');
+  const cerrarAsistente = document.getElementById('cerrarAsistente');
+  const asistenteContenedor = document.getElementById('asistenteContenedor');
+
+  abrirAsistente.addEventListener('click', () => {
+    asistenteContenedor.style.display = 'block';
+  });
+
+  cerrarAsistente.addEventListener('click', () => {
+    asistenteContenedor.style.display = 'none';
+  });
+
+  function responder(pregunta) {
+    const respuesta = document.getElementById('respuestaBot');
+    let texto = '';
+
+    switch (pregunta) {
+      case 'registro':
+        texto = 'Puedes registrarte desde en la web seleccionando "Crear cuenta" en "Entrar Paciente".';
+        break;
+      case 'citas':
+        texto = 'Tus citas se muestran en "Citas Pendientes" al iniciar sesión como paciente.';
+        break;
+      case 'emergencia':
+        texto = 'Ve a la sección "Emergencia" y sube tu documento de identidad o también usa el micrófono.';
+        break;
+      default:
+        texto = 'No entendí la pregunta. Por favor, intenta otra.';
+    }
+
+    respuesta.textContent = texto;
+  }
+</script>
+
+
 </body>
+
 </html>

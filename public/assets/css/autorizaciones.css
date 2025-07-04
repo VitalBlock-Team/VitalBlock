@@ -6,9 +6,10 @@
 }
 
 body {
-  background-color: #f6fafd;
-  color: #003344;
-  line-height: 1.6;
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif;
+  background-color: #e0f7fa;
+  color: #042a4d;
 }
 
 header {

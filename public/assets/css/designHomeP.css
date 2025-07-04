@@ -12,13 +12,16 @@ body {
 
 /* ------------------ HEADER ------------------ */
 header {
-  background-color: #ceecec;
+   background: rgba(152, 191, 200, 0.6);
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 20px 0;
+  padding: 10px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+
+
+
 .container-header {
   display: flex;
   justify-content: space-between;
@@ -37,12 +40,14 @@ nav {
   justify-content: center;
   flex: 1;
 }
+
 .navbar {
   display: flex;
   gap: 30px;
   flex: 1;
   justify-content: center;
 }
+
 nav a {
   font-size: 18px;
   font-weight: 700;
@@ -56,6 +61,7 @@ nav a:hover {
   color: #007b83;
   text-decoration: underline;
 }
+
 .element {
   font-size: 18px;
   font-weight: 700;
@@ -75,23 +81,17 @@ nav a:hover {
   height: 48px;
   cursor: pointer;
 }
-.login {
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-}
 
 /* ------------------ HERO SECTION ------------------ */
-/* SECCIÓN HOME */
 
 .contenido1 {
   display: flex;
   align-items: center;
   justify-content: space-between; 
   height: calc(100vh - 100px);
-  background-image: url('../images/homePaciente.svg');
+  background-image: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0.85) 10%, rgba(255, 255, 255, 0) 30%), url('../images/homePaciente.png');
   background-repeat: no-repeat;
-  background-size: contain; 
+  background-size: cover;
   background-position: right center;
   padding: 60px;
   box-sizing: border-box;
@@ -99,11 +99,16 @@ nav a:hover {
 
 .contenido-texto {
   max-width: 500px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.3); /* más transparencia */
+  backdrop-filter: blur(10px);          /* efecto vidrio */
+  -webkit-backdrop-filter: blur(10px);  /* soporte Safari */
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 2;
 }
+
 
 .titulo {
   font-family: 'Bree Serif', serif;
@@ -119,11 +124,27 @@ nav a:hover {
   color: #003344;
 }
 
-footer {
-  text-align: center;
-  font-size: 14px;
-  padding: 20px 0;
-  background-color: #f2f2f2;
+/* ------------------ BOTÓN AYUDA ------------------ */
+.boton-ayuda {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.boton-ayuda:hover {
+  background-color: #0097a7;
+  transform: scale(1.05);
 }
 
 /* ------------------ FOOTER ------------------ */
@@ -168,4 +189,93 @@ footer {
   .texto {
     font-size: 18px;
   }
+
+  .boton-ayuda {
+    bottom: 20px;
+    right: 20px;
+    font-size: 14px;
+    padding: 10px 16px;
+  }
 }
+.asistente-flotante {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #00acc1;
+  color: white;
+  padding: 16px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 999;
+  font-size: 24px;
+  transition: transform 0.3s;
+}
+
+.asistente-flotante:hover {
+  transform: scale(1.1);
+}
+
+.popup-ayuda {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 260px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 1000;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.popup-ayuda h3 {
+  margin-top: 0;
+  font-family: 'Bree Serif', serif;
+}
+
+.popup-ayuda ul {
+  padding-left: 20px;
+}
+
+.popup-ayuda button {
+  margin-top: 10px;
+  background-color: #66cef3;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Sunflower', sans-serif;
+}
+
+.oculto {
+  display: none;
+}
+
+.btn-mic {
+  position: fixed;
+  bottom: 110px; /* justo encima del otro botón flotante */
+  right: 25px;
+  background-color: #00acc1;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 36px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+  z-index: 1001;
+}
+
+.btn-mic:hover {
+  background-color: #008ca1;
+  transform: scale(1.1);
+}
+

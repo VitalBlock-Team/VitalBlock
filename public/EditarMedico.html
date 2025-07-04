@@ -1,47 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Doctor</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="assets/css/designEditarPyM.css">
+  <link href="https://fonts.cdnfonts.com/css/sunflower-2" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/fira-sans-book" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <img class="logo" src="assets/images/logo.png" alt="">
+  </nav>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Editar Ingeniero</title>
-        <link rel="icon" href="assets/images/logo.png" type="">
-        <link rel="stylesheet" href="assets/css/designEditarPyM.css">
-        <link href="https://fonts.cdnfonts.com/css/sunflower-2" rel="stylesheet">
-        <link href="https://fonts.cdnfonts.com/css/fira-sans-book" rel="stylesheet">
-    </head>
-    <body>
-        <nav>
-            <img class="logo" src="assets/images/logo.png" alt="">
-        </nav>
-        <section class="editar-pym">
-            <div class="contenedor">
-                <img class="usuario" src="assets/images/hombre.png" alt="">
-                <div class="editar">
-                    <div class="edit">
-                        <input  type="text" class="cuadrotexto" placeholder="Juan Perez" required>
-                    </div>
-                    <div class="edit">
-                        <input  type="text" class="cuadrotexto" placeholder="JuanP@gmail.com" required>
-                    </div>
-                    <div class="edit">
-                        <input  type="password" class="pas" placeholder="123456" required>
-                    </div>
-                </div>
-                <div>
-                    <a href="index.html" class="btnBanner">Cerrar Sesion</a>
-                </div>
-                <div>
-                    <a href="HomeMedico.html" class="btnBanner-V">Volver</a>
-                </div>
-            </div>
-        </section>
-    </body>
-    <footer>
-        <section class="final">
-            <small>
-                <b> Todos los derechos reservados VitalBlock&copy; 2025</b>
-            </small>
-        </section>
-    </footer>
+  <section class="editar-pym">
+    <div class="contenedor">
+      <img class="usuario" src="assets/images/doctor1.webp" alt="Foto de usuario">
+      <form class="editar">
+        <input type="text" class="cuadrotexto" placeholder="Dr.Ernesto Quispe" required>
+        <input type="email" class="cuadrotexto" placeholder="ErnestoQ@gmail.com" required>
+        <input type="password" class="cuadrotexto" placeholder="********" required>
+
+        <a href="../index.html" class="btnBanner">Cerrar Sesión</a>
+        <a href="HomeMedico.html" class="btnBanner btn-secundario">Volver</a>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <section class="final">
+      <small><b>Todos los derechos reservados VitalBlock&copy; 2025</b></small>
+    </section>
+  </footer>
+</body>
 </html>

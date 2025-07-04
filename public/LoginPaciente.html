@@ -15,7 +15,7 @@
   <nav>
     <img class="logo" src="assets/images/logo.png" alt="Logo">
     <ul>
-      <li><a class="element" href="index.html">Regresar</a></li>
+      <a class="element" href="../index.html">Regresar</a>
     </ul>
   </nav>
 
@@ -60,7 +60,7 @@
     </section>
   </footer>
 
-  <!-- Script de validación -->
+  <!-- Script de validación Paciente-->
   <script>
     function validarCredenciales() {
       const email = document.getElementById("email").value.trim();
@@ -73,6 +73,34 @@
 
       // Validación simulada
       if (email === "usuario@demo.com" && password === "123456") {
+        window.location.href = "HomePaciente.html";
+      } else {
+        alert("Correo o contraseña incorrectos.");
+      }
+    }
+
+    function abrirModal() {
+      document.getElementById("recoverModal").classList.add("active");
+    }
+
+    function cerrarModal() {
+      document.getElementById("recoverModal").classList.remove("active");
+    }
+  </script>
+
+  <!--ValidarMedico-->
+    <script>
+    function validarCredencialesM() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!email || !password) {
+        alert("Por favor, complete ambos campos.");
+        return;
+      }
+
+      // Validación simulada
+      if (email === "DocErnesto@ViBlock.com" && password === "123456") {
         window.location.href = "HomePaciente.html";
       } else {
         alert("Correo o contraseña incorrectos.");
