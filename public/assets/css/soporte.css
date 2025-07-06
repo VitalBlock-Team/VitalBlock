@@ -1,16 +1,31 @@
-body {
+/* RESET GLOBAL */
+* {
   margin: 0;
-  font-family: 'Fira Sans', sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Bree Serif', serif;
+}
+
+html, body {
+  height: 100%;
   background-color: #e0f7fa;
   color: #042a4d;
 }
 
-/* HEADER */
+/* LAYOUT BASE */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER UNIFICADO */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fefefe;
+  background-color: #ffffff;
   padding: 10px 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -25,17 +40,19 @@ header {
 nav {
   display: flex;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
 nav a {
-  text-decoration: none;
   color: #042a4d;
-  font-family: 'Bree Serif', serif;
   font-size: 16px;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 6px;
 }
 
 nav a:hover {
+  background-color: #f0f8fa;
   color: #007d94;
 }
 
@@ -44,29 +61,33 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* TÍTULO */
+/* TÍTULO DESTACADO */
 .titulo-principal {
   text-align: center;
   font-size: 30px;
   font-weight: 700;
-  margin-top: 40px;
-  margin-bottom: 30px;
+  margin: 40px 20px 30px;
   background: linear-gradient(90deg, #00bcd4, #3f51b5);
   -webkit-background-clip: text;
+  background-clip: text; /* ← Agregado para compatibilidad */
   -webkit-text-fill-color: transparent;
-  font-family: 'Bree Serif', serif;
+  color: transparent; /* ← También útil como fallback */
 }
 
-/* CARDS */
+
+/* CONTENIDO PRINCIPAL */
 .main-content {
   padding: 20px;
   max-width: 900px;
+  width: 90%;
   margin: auto;
   display: flex;
   flex-direction: column;
   gap: 30px;
+  flex: 1;
 }
 
+/* CARDS */
 .card {
   background-color: #ffffff;
   border-radius: 12px;
@@ -77,7 +98,6 @@ nav a:hover {
 .card h2 {
   font-size: 20px;
   margin-bottom: 16px;
-  font-family: 'Bree Serif', serif;
 }
 
 .help-list li,
@@ -107,7 +127,7 @@ nav a:hover {
   color: #555;
 }
 
-/* REDES */
+/* REDES SOCIALES */
 .social-card {
   text-align: center;
 }
@@ -130,12 +150,40 @@ nav a:hover {
   color: #555;
 }
 
-/* FOOTER */
+/* FOOTER UNIFICADO */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #fefefe;
+  background-color: #ffffff;
   border-top: 1px solid #ddd;
   font-size: 14px;
   color: #666;
+  width: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .titulo-principal {
+    font-size: 24px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+  }
 }

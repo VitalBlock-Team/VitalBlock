@@ -1,8 +1,14 @@
-body {
+/* ESTRUCTURA FLEX GLOBAL */
+html, body {
+  height: 100%;
   margin: 0;
   font-family: 'Fira Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
+
+/* HEADER */
 header {
   background-color: #ceecec;
   padding: 40px;
@@ -44,7 +50,9 @@ header a {
   top: 30px;
 }
 
+/* CONTENIDO PRINCIPAL */
 .contenido3 {
+  flex: 1; /* Para que el footer se mantenga abajo */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,6 +70,7 @@ header a {
   padding: 10px 25px;
   border-radius: 20px;
 }
+
 .texto-nosotros {
   flex: 1;
   max-width: 50%;
@@ -70,11 +79,15 @@ header a {
 .imagen-nosotros {
   flex: 1;
   text-align: center;
-
 }
+
 .med {
   width: 100%;
   max-width: 400px;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  border: 3px solid #007B8A;
 }
 
 .subtitulo {
@@ -92,6 +105,7 @@ header a {
   text-align: justify;
 }
 
+/* BOTÓN */
 .btn-politicas {
   margin-top: 30px;
   background-color: #007B8A;
@@ -107,7 +121,7 @@ header a {
   background-color: #005f6b;
 }
 
-/* Modal */
+/* MODAL */
 .modal-politicas {
   display: none;
   position: fixed;
@@ -144,30 +158,48 @@ header a {
   width: 60px;
 }
 
-.modal-footer {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 14px;
-}
-
+/* FOOTER */
 footer {
   text-align: center;
   padding: 15px;
   background-color: #f1f1f1;
-}
-.med {
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ccc;
   width: 100%;
-  max-width: 400px;
-  border-radius: 30px; /* esquinas redondeadas grandes */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  object-fit: cover;
-  border: 3px solid #007B8A;
 }
 
-.med {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 30px; /* bordes redondeados */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  object-fit: cover;
+/* FOOTER RESPONSIVE */
+@media (max-width: 768px) {
+  footer {
+    font-size: 13px;
+    padding: 12px;
+  }
+
+  .contenido3 {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .texto-nosotros,
+  .imagen-nosotros {
+    max-width: 100%;
+  }
+
+  .subtitulo {
+    font-size: 32px;
+  }
+
+  .texto2 {
+    font-size: 18px;
+  }
+
+  .btn-politicas {
+    width: 100%;
+  }
+
+  .modal-content-politicas {
+    width: 90%;
+  }
 }

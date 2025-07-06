@@ -99,3 +99,50 @@ header {
   width: 280px;
   height: auto;
 }
+
+
+/* FOOTER */
+footer {
+  background-color: #ffffff;
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ddd;
+  width: 100%;
+}
+
+footer .final small {
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contenido5 {
+    padding: 40px 20px;
+  }
+
+  .titulo5 {
+    font-size: 28px;
+    padding: 12px 24px;
+  }
+
+  .contacto-grid {
+    gap: 20px;
+  }
+
+  .contacto-item {
+    width: 90%;
+  }
+}

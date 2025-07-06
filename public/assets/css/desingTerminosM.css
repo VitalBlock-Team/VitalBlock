@@ -1,13 +1,21 @@
+/* RESET GLOBAL */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Fira Sans', sans-serif;
 }
 
-body {
+html, body {
+  height: 100%;
+  font-family: 'Bree Serif', serif;
   background-color: #DCEEF2;
   color: #042a4d;
+}
+
+/* LAYOUT FLEX PARA QUE EL FOOTER SE PEGUE ABAJO */
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 /* ENCABEZADO */
@@ -37,7 +45,6 @@ header {
 .navbar a {
   text-decoration: none;
   color: #042a4d;
-  font-family: 'Bree Serif', serif;
   font-size: 16px;
   font-weight: 600;
   padding: 8px 14px;
@@ -58,12 +65,14 @@ header {
 /* CONTENIDO PRINCIPAL */
 .main-content {
   max-width: 960px;
+  width: 90%;
   margin: 40px auto;
   padding: 30px;
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   animation: fadeIn 0.6s ease-in-out;
+  flex: 1;
 }
 
 @keyframes fadeIn {
@@ -78,7 +87,6 @@ header {
 }
 
 .terms-section h1 {
-  font-family: 'Bree Serif', serif;
   font-size: 32px;
   margin-bottom: 20px;
   color: #003344;
@@ -94,6 +102,7 @@ header {
 .button-group {
   margin-top: 30px;
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -132,5 +141,39 @@ footer {
   font-size: 14px;
   color: #555;
   border-top: 1px solid #ddd;
-  margin-top: 40px;
+  width: 100%;
+}
+
+/* MEDIA QUERIES PARA RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-content {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .terms-section h1 {
+    font-size: 24px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }

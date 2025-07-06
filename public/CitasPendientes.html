@@ -5,47 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citas Pendientes</title>
+    <link rel="icon" href="assets/images/logo.png">
     <link rel="stylesheet" href="assets/css/designCitasPendientes.css">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-    <style>
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.4);
-      }
-      .modal-content {
-        background-color: #fefefe;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 90%;
-        max-width: 500px;
-        border-radius: 12px;
-      }
-      .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      .estado.completado {
-        background-color: #b6e4c3;
-        padding: 4px 10px;
-        border-radius: 8px;
-      }
-      .estado.pendiente {
-        background-color: #f4c2c2;
-        padding: 4px 10px;
-        border-radius: 8px;
-      }
-    </style>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </head>
 <body>
     <nav class="navegacion">
@@ -205,5 +171,358 @@
         document.getElementById(id).style.display = 'none';
       }
     </script>
+<div class="contenido-boton">
+  <button class="btn-contenido" onclick="toggleFloatingMenu()">¿Hay algo nuevo?</button>
+</div>
+
+<div id="floatingMenu" class="floating-menu hidden">
+  <h3>Filtros Historial Médico</h3>
+  <div class="floating-option"><ion-icon name="file-tray-outline"></ion-icon> Diagnósticos</div>
+  <div class="floating-option"><ion-icon name="clipboard-outline"></ion-icon> Tratamientos</div>
+  <div class="floating-option"><ion-icon name="document-attach-outline"></ion-icon> Subir Archivos</div>
+  <div class="floating-option"><ion-icon name="finger-print-outline"></ion-icon> Firmas y certificados</div>
+</div>
+<!-- MODAL DE DIAGNÓSTICO -->
+<div id="modalDiagnostico" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalDiagnostico')">&times;</span>
+    <h3>Diagnósticos</h3>
+    <h4>Diagnósticos Previos</h4>
+    <div class="diagnostico-previo">
+      <p><strong>Hipertensión Arterial</strong> <span class="fecha">15 Mar 2025</span><br>
+        <small>Dra. Martínez – Cardiología</small>
+      </p>
+    </div>
+    <div class="diagnostico-previo">
+      <p><strong>Diabetes Tipo 2</strong> <span class="fecha">03 Feb 2025</span><br>
+        <small>Dra. Rodríguez – Endocrinología</small>
+      </p>
+    </div>
+
+    <h4>Nuevo Diagnóstico</h4>
+    <form id="formDiagnostico">
+      <label for="dni">DNI del Paciente</label>
+      <input type="text" id="dni" name="dni" placeholder="Ingrese DNI" required />
+
+      <label for="diagnostico">Diagnóstico</label>
+      <input type="text" id="diagnostico" name="diagnostico" placeholder="Ingrese el diagnóstico" required />
+
+      <label for="fecha">Fecha</label>
+      <input type="date" id="fecha" name="fecha" required />
+
+      <label for="notas">Notas</label>
+      <textarea id="notas" name="notas" placeholder="Agregue observaciones adicionales"></textarea>
+
+      <button type="submit" class="btn-guardar">Guardar Diagnóstico</button>
+    </form>
+  </div>
+</div>
+<!-- MODAL DE TRATAMIENTO -->
+<div id="modalTratamiento" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalTratamiento')">&times;</span>
+    <h3>Tratamientos</h3>
+
+    <h4>Tratamientos Previos</h4>
+    <div class="tratamiento-previo">
+      <p><strong>Losartán 50mg</strong><br>
+      <small>Dosis: 1 tableta cada 12 horas</small><br>
+      <small>Inicio: 15 Mar 2025</small></p>
+    </div>
+
+    <h4>Nuevo Tratamiento</h4>
+    <form id="formTratamiento">
+      <label for="dni-trata">DNI del Paciente</label>
+      <input type="text" id="dni-trata" name="dni" placeholder="Ingrese DNI" required />
+
+      <label for="medicamento">Tratamiento / Medicamento</label>
+      <input type="text" id="medicamento" name="medicamento" placeholder="Ingrese el medicamento" required />
+
+      <label for="duracion">Duración del Tratamiento</label>
+      <input type="text" id="duracion" name="duracion" placeholder="Ej: 3 meses" required />
+
+      <label for="instrucciones">Instrucciones del Tratamiento</label>
+      <textarea id="instrucciones" name="instrucciones" placeholder="Agregue observaciones adicionales"></textarea>
+
+      <button type="submit" class="btn-guardar">Guardar Tratamiento</button>
+    </form>
+  </div>
+</div>
+<!-- MODAL SUBIR ARCHIVOS -->
+<div id="modalArchivos" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalArchivos')">&times;</span>
+    <h3>Subir Archivos</h3>
+
+    <div class="upload-box">
+      <label for="fileInput">
+        <ion-icon name="cloud-upload-outline"></ion-icon><br>
+        Selecciona archivos para subir
+        <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png" hidden />
+      </label>
+      <button onclick="document.getElementById('fileInput').click()">Seleccionar Archivos</button>
+    </div>
+
+    <div id="archivosSeleccionados" class="file-list"></div>
+<label for="dni-archivos">DNI del Paciente</label>
+<input type="text" id="dni-archivos" name="dni" placeholder="Ingrese el DNI" required />
+
+    <h4>Archivos Anteriores</h4>
+    <div class="file-list old">
+      <div class="file-item">
+        <ion-icon name="document-outline"></ion-icon>
+        <div>
+          <strong>Historial-2025.pdf</strong><br>
+          <small>13 Mayo, 2025</small>
+        </div>
+      </div>
+      <div class="file-item">
+        <ion-icon name="image-outline"></ion-icon>
+        <div>
+          <strong>Scan-0123.jpg</strong><br>
+          <small>10 Mayo, 2025</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="file-buttons">
+      <button class="btn-descartar" onclick="descartarArchivos()">Descartar</button>
+      <button class="btn-guardar" onclick="guardarArchivos()">Guardar</button>
+    </div>
+
+    <div id="mensajeExito" class="mensaje-exito hidden">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      Archivos subidos correctamente
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CERTIFICADOS -->
+<div id="modalCertificado" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modalCertificado')">&times;</span>
+    <h3>Emitir Certificado Médico</h3>
+
+    <form id="formCertificado">
+      <label for="dni-cert">DNI del Paciente</label>
+      <input type="text" id="dni-cert" required placeholder="Ingrese DNI" />
+
+      <label for="tipo-cert">Tipo de Certificado Médico</label>
+      <input type="text" id="tipo-cert" required placeholder="Ej: Certificado médico general" />
+
+      <label for="fecha-cert">Fecha de Emisión</label>
+      <input type="date" id="fecha-cert" required />
+
+      <label for="desc-cert">Descripción del Certificado</label>
+      <textarea id="desc-cert" placeholder="Agregue observaciones adicionales" required></textarea>
+
+      <div class="file-buttons">
+        <button type="submit" class="btn-guardar">Aceptar</button>
+        <button type="button" class="btn-descartar" onclick="closeModal('modalCertificado')">Denegar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+    <footer>
+    <p>Todos los derechos reservados VitalBlock 2025</p>
+  </footer>
+  <script>
+  function toggleFloatingMenu() {
+    const menu = document.getElementById('floatingMenu');
+    menu.classList.toggle('hidden');
+  }
+
+  window.addEventListener('click', function (e) {
+    const menu = document.getElementById('floatingMenu');
+    const trigger = document.querySelector('.btn-contenido');
+    if (!menu.contains(e.target) && !trigger.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+</script>
+<script>
+  function toggleFloatingMenu() {
+    const menu = document.getElementById('floatingMenu');
+    menu.classList.toggle('hidden');
+  }
+
+  window.addEventListener('click', function (e) {
+    const menu = document.getElementById('floatingMenu');
+    const trigger = document.querySelector('.btn-contenido');
+    if (!menu.contains(e.target) && !trigger.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+
+  function openModal(id) {
+    document.getElementById(id).style.display = "block";
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Activar modal desde opción del menú
+  document.querySelectorAll('.floating-option').forEach((item) => {
+    item.addEventListener('click', () => {
+      const label = item.textContent.trim();
+      if (label === 'Diagnósticos') {
+        openModal('modalDiagnostico');
+        toggleFloatingMenu(); // Ocultar menú después
+      }
+    });
+  });
+</script>
+<script>
+  function toggleFloatingMenu() {
+    const menu = document.getElementById('floatingMenu');
+    menu.classList.toggle('hidden');
+  }
+
+  window.addEventListener('click', function (e) {
+    const menu = document.getElementById('floatingMenu');
+    const trigger = document.querySelector('.btn-contenido');
+    if (!menu.contains(e.target) && !trigger.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+
+  function openModal(id) {
+    document.getElementById(id).style.display = "block";
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Asociar clic del menú flotante con los modales
+  document.querySelectorAll('.floating-option').forEach((item) => {
+    item.addEventListener('click', () => {
+      const label = item.textContent.trim();
+      if (label === 'Diagnósticos') {
+        openModal('modalDiagnostico');
+      } else if (label === 'Tratamientos') {
+        openModal('modalTratamiento');
+      }
+      toggleFloatingMenu(); // Cierra el menú flotante al abrir modal
+    });
+  });
+</script>
+<script>
+  const archivosSeleccionados = document.getElementById('archivosSeleccionados');
+  const mensajeExito = document.getElementById('mensajeExito');
+
+  document.getElementById('fileInput').addEventListener('change', function () {
+    archivosSeleccionados.innerHTML = '';
+    for (let file of this.files) {
+      const item = document.createElement('div');
+      item.className = 'file-item';
+      const icon = file.type.includes('pdf') ? 'document-outline' : 'image-outline';
+      item.innerHTML = `
+        <ion-icon name="${icon}"></ion-icon>
+        <div>
+          <strong>${file.name}</strong><br>
+          <small>${(file.size / 1024 / 1024).toFixed(1)} MB</small>
+        </div>
+        <span class="remove" onclick="this.parentElement.remove()">×</span>
+      `;
+      archivosSeleccionados.appendChild(item);
+    }
+  });
+
+  function descartarArchivos() {
+    document.getElementById('fileInput').value = '';
+    archivosSeleccionados.innerHTML = '';
+    mensajeExito.classList.add('hidden');
+  }
+
+  function guardarArchivos() {
+    if (archivosSeleccionados.children.length > 0) {
+      mensajeExito.classList.remove('hidden');
+      setTimeout(() => {
+        mensajeExito.classList.add('hidden');
+        closeModal('modalArchivos');
+      }, 2000);
+    }
+  }
+
+  // Detectar clic en opción del menú flotante
+document.querySelectorAll('.floating-option').forEach((item) => {
+  item.addEventListener('click', () => {
+    const label = item.textContent.trim();
+
+    if (label === 'Diagnósticos') {
+      openModal('modalDiagnostico');
+    } else if (label === 'Tratamientos') {
+      openModal('modalTratamiento');
+    } else if (label === 'Subir Archivos') {
+      openModal('modalArchivos');
+    } else if (label === 'Firmas y certificados') {
+      openModal('modalCertificado');
+    }
+
+    toggleFloatingMenu();
+  });
+});
+
+  function guardarArchivos() {
+  const dni = document.getElementById('dni-archivos').value.trim();
+
+  if (!dni) {
+    alert("Por favor ingrese el DNI del paciente.");
+    return;
+  }
+
+  if (archivosSeleccionados.children.length > 0) {
+    mensajeExito.classList.remove('hidden');
+    setTimeout(() => {
+      mensajeExito.classList.add('hidden');
+      closeModal('modalArchivos');
+      descartarArchivos();
+    }, 2000);
+  }
+}
+document.getElementById('formCertificado').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  const dni = document.getElementById('dni-cert').value.trim();
+  const tipo = document.getElementById('tipo-cert').value.trim();
+  const fecha = document.getElementById('fecha-cert').value;
+  const desc = document.getElementById('desc-cert').value.trim();
+
+  const today = new Date();
+  const emitido = today.toLocaleDateString();
+
+  doc.setFont("times", "normal");
+  doc.setFontSize(16);
+  doc.text("CERTIFICADO MÉDICO", 105, 30, { align: "center" });
+
+  doc.setFontSize(12);
+  doc.text(`Se certifica que el paciente con DNI Nº ${dni}`, 20, 50);
+  doc.text(`requiere el siguiente documento:`, 20, 60);
+  doc.text(`Tipo: ${tipo}`, 20, 70);
+  doc.text(`Fecha de Emisión: ${fecha}`, 20, 80);
+  doc.text("Descripción:", 20, 90);
+
+  doc.setFontSize(11);
+  doc.text(desc, 20, 100, { maxWidth: 170 });
+
+  doc.setFontSize(12);
+  doc.text("__________________________________", 20, 140);
+  doc.text("Firma y sello médico", 20, 150);
+
+  doc.text(`Emitido: ${emitido}`, 150, 200, { align: "right" });
+
+  doc.save(`Certificado_DNI_${dni}.pdf`);
+  closeModal('modalCertificado');
+});
+
+</script>
+
 </body>
 </html>
